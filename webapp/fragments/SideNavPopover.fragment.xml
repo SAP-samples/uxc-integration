@@ -1,0 +1,71 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:tnt="sap.tnt">
+
+	<ResponsivePopover
+		id="sideNavPopover"
+		placement="Bottom"
+		verticalScrolling="false"
+		ariaLabelledBy="popoverLabel">
+
+		<core:InvisibleText id="popoverLabel" text="Main" />
+
+		<tnt:SideNavigation
+			id="sideNavInOverlay"
+			width="18rem"
+			selectedKey="home"
+			design="Plain"
+			itemSelect=".onItemSelect">
+			<tnt:NavigationList>
+				<tnt:NavigationListItem key="home" text="Home" icon="home" />
+				<tnt:NavigationListItem key="favorites" text="Favorites" expanded="true"
+					icon="favorite-list"
+					selectable="false">
+					<tnt:NavigationListItem key="myAccounts" text="My Accounts" />
+					<tnt:NavigationListItem key="myOrders" text="My Orders" />
+				</tnt:NavigationListItem>
+				<tnt:NavigationListItem key="customerManagement" text="Customer Management" icon="account"
+					expanded="true"
+					selectable="false">
+					<tnt:NavigationListItem key="contacts" text="Contacts" />
+					<tnt:NavigationListItem key="companies" text="Companies" />
+					<tnt:NavigationListItem key="partners" text="Partners" />
+				</tnt:NavigationListItem>
+				<tnt:NavigationListItem key="sales" text="Sales" icon="crm-sales" expanded="true"
+					selectable="false">
+					<tnt:NavigationListItem key="leads" text="Leads" />
+					<tnt:NavigationListItem key="opportunities" text="Opportunities" />
+					<tnt:NavigationListItem key="quotes" text="Quotes" />
+					<tnt:NavigationListItem key="orders" text="Orders" />
+					<tnt:NavigationListItem key="invoices" text="Invoices" />
+				</tnt:NavigationListItem>
+				<tnt:NavigationListItem key="products" text="Products" icon="s4hana" expanded="true"
+					selectable="false">
+					<tnt:NavigationListItem key="productCatalog" text="Product Catalog" />
+					<tnt:NavigationListItem key="pricing" text="Pricing" />
+					<tnt:NavigationListItem key="inventoryManagement" text="Inventory Management" />
+				</tnt:NavigationListItem>
+				<tnt:NavigationListItem key="marketing" text="Marketing" icon="business-by-design"
+					expanded="true"
+					selectable="false">
+					<tnt:NavigationListItem key="campaigns" text="Campaigns" />
+					<tnt:NavigationListItem key="emailMarketing" text="E-Mail Marketing" />
+					<tnt:NavigationListItem key="marketingAutomation" text="Marketing Automation" />
+				</tnt:NavigationListItem>
+				<tnt:NavigationListItem key="reports" text="Reports" icon="manager-insight" expanded="true"
+					selectable="false">
+					<tnt:NavigationListItem key="salesReports" text="Sales Reports" />
+					<tnt:NavigationListItem key="customerReports" text="Customer Reports" />
+				</tnt:NavigationListItem>
+			</tnt:NavigationList>
+			<tnt:fixedItem>
+				<tnt:NavigationList>
+					<tnt:NavigationListItem key="quickCreate" text="Quick Create" icon="add" design="Action"
+						selectable="false" press=".onQuickCreate" />
+					<tnt:NavigationListItem key="productSettings" text="Product Settings" icon="settings" />
+				</tnt:NavigationList>
+			</tnt:fixedItem>
+		</tnt:SideNavigation>
+	</ResponsivePopover>
+</core:FragmentDefinition>

@@ -1,0 +1,144 @@
+<mvc:View
+	controllerName="uxc.integration.controller.App"
+	displayBlock="true"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:core="sap.ui.core"
+	xmlns:tnt="sap.tnt"
+	xmlns:webc="@ui5/webcomponents/dist"
+	xmlns:webcf="@ui5/webcomponents-fiori/dist">
+	<App id="app">
+		<Page id="toolPageWrapper" showHeader="false">
+			<tnt:ToolPage id="toolPage">
+				<tnt:header>
+					<webcf:ShellBar
+						primaryTitle="VEGA CRM"
+						showNotifications="true"
+						notificationsCount="{appView>/notificationsCount}"
+						notificationsClick=".onNotificationsClick"
+						profileClick=".onProfileClick"
+						logoClick=".onLogoClick"
+						showProductSwitch="true"
+						showSearchField="true"
+					>
+						<webcf:startButton>
+							<webc:Button id="toggleMenu" icon="menu2" tooltip="Toggle Side Navigation"
+								click=".onMenuButtonClick" />
+						</webcf:startButton>
+
+						<webcf:logo>
+							<Image src="images/SAP_Logo.svg" alt="Logo" />
+						</webcf:logo>
+
+						<webcf:content>
+							<webc:Tag design="Set2" colorScheme="7" text="Trial" />
+							<webc:Text text="30 days remaining" />
+						</webcf:content>
+
+						<webcf:searchField>
+							<webcf:ShellBarSearch showClearIcon="true" placeholder="Search" />
+						</webcf:searchField>
+
+						<webcf:assistant>
+							<webc:ToggleButton icon="da" tooltip="Assistant" />
+						</webcf:assistant>
+
+						<webcf:ShellBarItem icon="sys-help" text="Help" />
+
+						<webcf:profile>
+							<webc:Avatar id="profileAvatar">
+								<Image src="images/Avatar.svg" alt="Avatar" />
+							</webc:Avatar>
+						</webcf:profile>
+					</webcf:ShellBar>
+				</tnt:header>
+
+				<tnt:sideContent>
+					<tnt:SideNavigation
+						id="sideNavigation"
+						ariaLabel="Main"
+						expanded="true"
+						selectedKey="home"
+						width="18rem"
+						itemSelect=".onItemSelect">
+						<tnt:NavigationList>
+							<tnt:NavigationListItem key="home" text="Home" icon="home" />
+							<tnt:NavigationListItem key="favorites" text="Favorites" expanded="true" icon="favorite-list"
+								selectable="false">
+								<tnt:NavigationListItem key="myAccounts" text="My Accounts" />
+								<tnt:NavigationListItem key="myOrders" text="My Orders" />
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem key="customerManagement" text="Customer Management" icon="account" expanded="true"
+								selectable="false">
+								<tnt:NavigationListItem key="contacts" text="Contacts" />
+								<tnt:NavigationListItem key="companies" text="Companies" />
+								<tnt:NavigationListItem key="partners" text="Partners" />
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem key="sales" text="Sales" icon="crm-sales" expanded="true"
+								selectable="false">
+								<tnt:NavigationListItem key="leads" text="Leads" />
+								<tnt:NavigationListItem key="opportunities" text="Opportunities" />
+								<tnt:NavigationListItem key="quotes" text="Quotes" />
+								<tnt:NavigationListItem key="orders" text="Orders" />
+								<tnt:NavigationListItem key="invoices" text="Invoices" />
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem key="products" text="Products" icon="s4hana" expanded="true"
+								selectable="false">
+								<tnt:NavigationListItem key="productCatalog" text="Product Catalog" />
+								<tnt:NavigationListItem key="pricing" text="Pricing" />
+								<tnt:NavigationListItem key="inventoryManagement" text="Inventory Management" />
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem key="marketing" text="Marketing" icon="business-by-design" expanded="true"
+								selectable="false">
+								<tnt:NavigationListItem key="campaigns" text="Campaigns" />
+								<tnt:NavigationListItem key="emailMarketing" text="E-Mail Marketing" />
+								<tnt:NavigationListItem key="marketingAutomation" text="Marketing Automation" />
+							</tnt:NavigationListItem>
+							<tnt:NavigationListItem key="reports" text="Reports" icon="manager-insight" expanded="true"
+								selectable="false">
+								<tnt:NavigationListItem key="salesReports" text="Sales Reports" />
+								<tnt:NavigationListItem key="customerReports" text="Customer Reports" />
+							</tnt:NavigationListItem>
+						</tnt:NavigationList>
+						<tnt:fixedItem>
+							<tnt:NavigationList>
+								<tnt:NavigationListItem key="quickCreate" text="Quick Create" icon="add" design="Action"
+									selectable="false" press=".onQuickCreate" />
+								<tnt:NavigationListItem key="productSettings" text="Product Settings" icon="settings" />
+							</tnt:NavigationList>
+						</tnt:fixedItem>
+					</tnt:SideNavigation>
+				</tnt:sideContent>
+
+				<tnt:mainContents>
+					<VBox class="sapUiSmallMargin">
+						<Title id="contentTitle" text="Home" />
+						<Text text="Content..." />
+					</VBox>
+				</tnt:mainContents>
+			</tnt:ToolPage>
+
+			<webcf:UserMenu id="userProfileMenu" opener="profileAvatar" showManageAccount="true"
+				showOtherAccounts="true" showEditAccounts="true" showEditButton="true">
+				<webcf:accounts>
+					<webcf:UserMenuAccount titleText="Alain Chevalier" subtitleText="alian.chevalier@sap.com"
+						description="Delivery Manager, SAP SE" avatarSrc="images/Avatar.svg" selected="true" />
+					<webcf:UserMenuAccount titleText="John Walker" subtitleText="john.walker@sap.com"
+						description="Project Manager" avatarInitials="JW" />
+					<webcf:UserMenuAccount titleText="David Wilson" subtitleText="david.wilson@sap.com"
+						description="Project Manager" />
+				</webcf:accounts>
+				<webcf:UserMenuItem text="Setting" icon="action-settings" />
+				<webcf:UserMenuItem text="Legal Information" icon="official-service">
+					<webcf:UserMenuItem text="Terms of Use">
+					</webcf:UserMenuItem>
+					<webcf:UserMenuItem text="Private Policy" />
+				</webcf:UserMenuItem>
+				<webcf:UserMenuItem text="About" icon="message-information" />
+			</webcf:UserMenu>
+
+			<mvc:XMLView id="notificationsView" viewName="uxc.integration.view.Notifications" />
+			<core:Fragment id="userSettingsDialog" fragmentName="uxc.integration.fragments.UserSettingsDialog" />
+		</Page>
+	</App>
+</mvc:View>

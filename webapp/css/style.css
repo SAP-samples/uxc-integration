@@ -1,0 +1,25 @@
+/* Notifications */
+.notificationsPopover {
+	width: 27rem;
+	max-height: 40rem;
+}
+
+.notificationsPopover::part(header) {
+	padding: 0;
+	box-shadow: none;
+}
+
+.notificationsPopover::part(content) {
+	padding: 0;
+}
+
+.notificationsPopoverList {
+	height: 100%;
+}
+
+.notificationsPopoverBar,
+.notificationsPopoverBar::part(bar) {
+	box-shadow: none;
+}
+
+/* End notifications */

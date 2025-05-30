@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="expires" content="0" />
+
+		<meta charset="utf-8" />
+
+		<title>UXC Seamless Integration</title>
+
+		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+		<link rel="icon" type="image/x-icon" href="images/favicon/favicon.ico">
+		<link rel="manifest" href="images/favicon/site.webmanifest">
+
+		<script
+			id="sap-ui-bootstrap"
+			src="resources/sap-ui-core.js"
+			data-sap-ui-resource-roots='{
+				"uxc.integration": "./"
+			}'
+			data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
+			data-sap-ui-compat-version="edge"
+			data-sap-ui-frame-options="trusted"
+			data-sap-ui-async="true"
+			data-sap-ui-theme="sap_horizon"
+			data-sap-ui-xx-waitForTheme="true"
+			data-sap-ui-xx-supportedLanguages="en,de"
+		></script>
+	</head>
+
+	<body class="sapUiBody">
+		<div data-sap-ui-component data-name="uxc.integration"></div>
+	</body>
+</html>

@@ -1,0 +1,16 @@
+specVersion: "4.0"
+metadata:
+  name: uxc.integration
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: dist
+framework:
+  name: OpenUI5
+  version: "1.136.0"
+  libraries:
+    - name: sap.m
+    - name: sap.tnt
+    - name: sap.ui.core
+    - name: themelib_sap_horizon

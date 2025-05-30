@@ -1,0 +1,122 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:webc="@ui5/webcomponents/dist"
+	xmlns:webcf="@ui5/webcomponents-fiori/dist">
+
+	<webcf:UserSettingsDialog id="settings" headerText="Settings">
+		<webcf:UserSettingsItem icon="user-settings" text="User Information" tooltip="User Information"
+			headerText="User Information">
+			<webcf:pages>
+				<webcf:UserSettingsView>
+					<FlexBox direction="Column" alignItems="Center" justifyContent="SpaceBetween"
+						gap="0.625rem">
+						<webc:Avatar size="XL">
+							<Image src="images/Avatar.svg" alt="Avatar" />
+						</webc:Avatar>
+						<FlexBox direction="Column" alignItems="Center" justifyContent="SpaceBetween">
+							<Title text="Alain Chevalier" />
+							<Label text="CZ0303" />
+							<Label text="Delivery Manager" />
+						</FlexBox>
+						<Button class="sapUiSmallMargin" icon="sap-icon://user-settings" type="Emphasized"
+							text="Manage Account" />
+					</FlexBox>
+
+					<FlexBox>
+						<core:Icon color="#556b82" src="sap-icon://message-information" />
+						<Label textAlign="Center" wrapping="true"
+							text="Same personal information, like your name and email address, may be provided by your company. If you want to update there details, contact your administrator." />
+					</FlexBox>
+
+					<FlexBox direction="Column" class="sapUiSmallMargin">
+						<Label text="Full name:" />
+						<Text text="Alain Chevalier" />
+					</FlexBox>
+
+					<FlexBox direction="Column" class="sapUiSmallMargin">
+						<Label text="Email:" />
+						<Text text="alain.chevalier@sap.com" />
+					</FlexBox>
+				</webcf:UserSettingsView>
+			</webcf:pages>
+		</webcf:UserSettingsItem>
+
+		<webcf:UserSettingsItem icon="palette" text="Appearance" tooltip="Appearance"
+			headerText="Appearance">
+			<webcf:UserSettingsView text="Themes">
+				<List>
+					<StandardListItem icon="sap-icon://palette" title="SAP Morning Horizon" />
+					<StandardListItem icon="sap-icon://palette" title="SAP Evening Horizon" />
+					<StandardListItem icon="sap-icon://palette" title="SAP High Contrast Black (SAP Horizon)" />
+					<StandardListItem icon="sap-icon://palette" title="SAP High Contrast White (SAP Horizon)" />
+				</List>
+			</webcf:UserSettingsView>
+
+			<webcf:UserSettingsView text="Display settings">
+				<CheckBox selected="true" text="Optimized for Touch Input" />
+				<Panel>
+					<Label wrapping="true"
+						text="Increases the size and spacing of controls to allow you to interact with them more easily using your fingertip.
+							This is useful for hybrid devices that combine touch and mouse events." />
+				</Panel>
+			</webcf:UserSettingsView>
+		</webcf:UserSettingsItem>
+
+		<webcf:UserSettingsItem text="Language &amp; Region" tooltip="Language &amp; Region"
+			headerText="Language &amp; Region">
+			<webcf:pages>
+				<webcf:UserSettingsView>
+					<FlexBox direction="Column" alignItems="Center" justifyContent="SpaceBetween"
+						gap="0.625rem">
+						<FlexBox alignItems="Center">
+							<Label class="sapUiSmallMargin" text="Language and Region:" />
+							<ComboBox selectedKey="1">
+								<core:Item key="1" text="Browse Language" />
+								<core:Item key="2" text="English" />
+								<core:Item key="3" text="European Spanish" />
+								<core:Item key="4" text="French (France)" />
+								<core:Item key="5" text="Germany" />
+							</ComboBox>
+						</FlexBox>
+
+						<FlexBox alignItems="Center">
+							<Label class="sapUiSmallMargin" text="Date Format:" />
+							<Text text="MMM d, y" />
+						</FlexBox>
+						<FlexBox class="sapUiSmallMargin">
+							<Panel>
+								<Label wrapping="true"
+									text="The time zone will not be applied in UI5 apps.
+					If you don't know the type of an app, you can check it in the 'About' dialog in the 'ID of the Application Framework' field." />
+							</Panel>
+						</FlexBox>
+
+						<FlexBox alignItems="Center">
+							<Label class="sapUiSmallMargin" labelFor="timeFormat" text="Time Format:" />
+							<RadioButtonGroup id="timeFormat" columns="2">
+								<RadioButton text="12h" selected="true" />
+								<RadioButton text="24h" />
+							</RadioButtonGroup>
+						</FlexBox>
+						<Panel>
+							<Label wrapping="true"
+								text="After you save your settings, the browser will refresh for the new settings to take effect." />
+						</Panel>
+					</FlexBox>
+				</webcf:UserSettingsView>
+			</webcf:pages>
+		</webcf:UserSettingsItem>
+
+		<webcf:UserSettingsItem icon="bell" text="Notifications" tooltip="Notifications"
+			headerText="Notifications">
+			<webcf:pages>
+				<webcf:UserSettingsView>
+					<CheckBox selected="true" text="Show High-Priority Notification Alerts" />
+				</webcf:UserSettingsView>
+			</webcf:pages>
+		</webcf:UserSettingsItem>
+
+	</webcf:UserSettingsDialog>
+</core:FragmentDefinition>
