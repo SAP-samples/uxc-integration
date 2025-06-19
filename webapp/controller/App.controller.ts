@@ -19,6 +19,7 @@ import NavigationListItem from "sap/tnt/NavigationListItem";
 import WebCButton from "@ui5/webcomponents/dist/Button";
 import WebCPopover from "@ui5/webcomponents/dist/Popover";
 import WebCFUserMenu, { UserMenuItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/UserMenu";
+import WebCFShellbarSearch from "@ui5/webcomponents-fiori/dist/ShellBarSearch";
 import WebCFUserSettingsDialog from "@ui5/webcomponents-fiori/dist/UserSettingsDialog";
 import { ShellBar$NotificationsClickEvent } from "sap/ui/webc/fiori/ShellBar";
 
@@ -29,6 +30,10 @@ import "@ui5/webcomponents-icons/dist/da";
 import "@ui5/webcomponents-icons/dist/action-settings";
 import "@ui5/webcomponents-icons/dist/official-service";
 import "@ui5/webcomponents-icons/dist/message-information";
+import "@ui5/webcomponents-icons/dist/employee";
+import "@ui5/webcomponents-icons/dist/account";
+import "@ui5/webcomponents-icons/dist/customer-and-supplier";
+import "@ui5/webcomponents-icons/dist/sales-order";
 import "@ui5/webcomponents-icons/dist/palette";
 
 /**
@@ -50,6 +55,12 @@ export default class App extends BaseController {
 	}
 
 	onAfterRendering() {
+
+		const searchField = this.getView().byId("searchField").getDomRef() as WebCFShellbarSearch;
+		if (searchField) {
+			// Add focusin event listener to the search field
+			searchField.addEventListener("focusin", this.onSearchFocusIn.bind(this));
+		}
 		// Temporary fix for the issue with the side navigation not scrolling to the top
 		// Scroll the SideNavigation's NavigationList to the top
 		setTimeout(() => {
@@ -206,6 +217,13 @@ export default class App extends BaseController {
 			});
 
 			this.userMenuListenerAdded = true;
+		}
+	}
+
+	onSearchFocusIn(): void {
+		const searchField = this.getView().byId("searchField");
+		if (searchField && searchField.getProperty("open") === false) {
+			searchField.setProperty("open", true);
 		}
 	}
 
