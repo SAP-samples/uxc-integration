@@ -36,7 +36,7 @@
 						</webcf:content>
 
 						<webcf:searchField>
-							<webcf:ShellBarSearch showClearIcon="true" placeholder="Search" id="searchField">
+							<webcf:ShellBarSearch showClearIcon="true" placeholder="Type 'A' to search" >
 								<webcf:SearchItem text="Alain Chevalier" description="Employee | 1255656">
 									<webcf:image>
 										<webc:Avatar size="XS">
