@@ -29,6 +29,10 @@ import "@ui5/webcomponents-icons/dist/da";
 import "@ui5/webcomponents-icons/dist/action-settings";
 import "@ui5/webcomponents-icons/dist/official-service";
 import "@ui5/webcomponents-icons/dist/message-information";
+import "@ui5/webcomponents-icons/dist/employee";
+import "@ui5/webcomponents-icons/dist/account";
+import "@ui5/webcomponents-icons/dist/customer-and-supplier";
+import "@ui5/webcomponents-icons/dist/sales-order";
 import "@ui5/webcomponents-icons/dist/palette";
 
 /**
