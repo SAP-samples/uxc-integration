@@ -36,7 +36,40 @@
 						</webcf:content>
 
 						<webcf:searchField>
-							<webcf:ShellBarSearch showClearIcon="true" placeholder="Search" />
+							<webcf:ShellBarSearch showClearIcon="true" placeholder="Type 'A' to search" >
+								<webcf:SearchItem text="Alain Chevalier" description="Employee | 1255656">
+									<webcf:image>
+										<webc:Avatar size="XS">
+											<Image src="images/Avatar.svg" alt="Avatar" />
+										</webc:Avatar>
+									</webcf:image>
+								</webcf:SearchItem>
+								<webcf:SearchItem text="Alain's Digital Services" description="Account | 65656665">
+									<webcf:image>
+										<webc:Avatar size="XS" icon="customer-and-supplier" />
+									</webcf:image>
+								</webcf:SearchItem>
+								<webcf:SearchItem text="Alain's Ventures" description="Account | 13456665">
+									<webcf:image>
+										<webc:Avatar size="XS" icon="customer-and-supplier" />
+									</webcf:image>
+								</webcf:SearchItem>
+								<webcf:SearchItemGroup headerText="Sales Orders">
+									<webcf:SearchItem text="15665566 - Media Alain Productions" description="Shipped | Ordered Items (15)">
+										<webcf:image>
+											<webc:Avatar size="XS" icon="sales-order" colorScheme="Accent9"/>
+										</webcf:image>
+									</webcf:SearchItem>
+									<webcf:SearchItem text="46544665 - Media Alain Productions" description="Processing | Ordered Items (15)">
+										<webcf:image>
+											<webc:Avatar size="XS" icon="sales-order" colorScheme="Accent9"/>
+										</webcf:image>
+									</webcf:SearchItem>
+								</webcf:SearchItemGroup>
+								<webcf:action>
+									<webc:Button id="searchButton" tooltip="Search" design="Transparent" text="Show all search results"></webc:Button>
+								</webcf:action>
+							</webcf:ShellBarSearch>
 						</webcf:searchField>
 
 						<webcf:assistant>
