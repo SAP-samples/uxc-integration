@@ -8,6 +8,21 @@ This sample project demonstrates the seamless integration of [UI5 Web Components
 
 By using this sample, you can explore best practices for embedding UI5 Web Components in OpenUI5 views, handling interoperability, and leveraging the strengths of both frameworks. This integration pattern helps modernize SAP Fiori applications and extend their capabilities with reusable, standards-based UI elements.
 
+### Key features illustrated in this example include
+
+* Side Navigation: An organized layout presenting a clear hierarchical structure.
+* Shell Bar: Incorporates all required elements, such as:
+   * Side Navigation access
+   * Branding element
+   * Shell action help
+   * User profile with access to the user menu
+   * Optional components like notifications or settings
+* Shell Search: Provides search functionality fully aligned with SAP's usability guidelines.
+* User Settings: Offers personalization options for users to tailor their experience, such as theming and language preferences.
+* Notification Experience: Delivers real-time alerts and updates, complete with badge indicators and intuitive interaction patterns.
+
+This example is ideal for developers and designers looking to align their applications with SAP's UXC standards, ensuring consistency, usability, and compliance across the SAP ecosystem.
+
 ## Requirements
 
 Either [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/), or [pnpm](https://pnpm.io/) for dependency management.
