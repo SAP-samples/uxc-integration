@@ -20,7 +20,7 @@ import WebCButton from "@ui5/webcomponents/dist/Button";
 import WebCPopover from "@ui5/webcomponents/dist/Popover";
 import WebCFUserMenu, { UserMenuItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/UserMenu";
 import WebCFUserSettingsDialog from "@ui5/webcomponents-fiori/dist/UserSettingsDialog";
-import { ShellBar$NotificationsClickEvent } from "sap/ui/webc/fiori/ShellBar";
+import { ShellBar$NotificationsClickEvent, ShellBar$ProfileClickEvent } from "sap/ui/webc/fiori/ShellBar";
 
 // Icons
 import "@ui5/webcomponents-icons/dist/menu2";
@@ -175,12 +175,16 @@ export default class App extends BaseController {
 
 	/**
 	 * Called when the user clicks on the profile button.
-	 * This is used to open the user settings dialog.
+	 * This is used to open the user menu and setup the settings dialog.
 	 */
-	async onProfileClick(): Promise<void> {
+	async onProfileClick(e: ShellBar$ProfileClickEvent): Promise<void> {
 		const userMenu = this.getView().byId("userProfileMenu").getDomRef() as WebCFUserMenu;
+
+		// Use the targetRef from the event as the opener
+		userMenu.opener = e.getParameter("targetRef");
 		userMenu.open = true;
 
+		// Load the settings dialog if not already loaded
 		let settingsDialog = this.getView().byId("settings") as unknown as WebCFUserSettingsDialog;
 		if (!settingsDialog) {
 			const dialogFragment = await Fragment.load({
@@ -193,6 +197,7 @@ export default class App extends BaseController {
 			settingsDialog = dialogFragment as unknown as WebCFUserSettingsDialog;
 		}
 
+		// Add event listener for user menu item clicks if not already added
 		if (!this.userMenuListenerAdded) {
 			userMenu.addEventListener("item-click", (event: Event) => {
 				const customEvent = event as CustomEvent<UserMenuItemClickEventDetail>;

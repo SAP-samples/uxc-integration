@@ -79,7 +79,7 @@
 						<webcf:ShellBarItem icon="sys-help" text="Help" />
 
 						<webcf:profile>
-							<webc:Avatar id="profileAvatar">
+							<webc:Avatar>
 								<Image src="images/Avatar.svg" alt="Avatar" />
 							</webc:Avatar>
 						</webcf:profile>
@@ -151,7 +151,7 @@
 				</tnt:mainContents>
 			</tnt:ToolPage>
 
-			<webcf:UserMenu id="userProfileMenu" opener="profileAvatar" showManageAccount="true"
+			<webcf:UserMenu id="userProfileMenu" showManageAccount="true"
 				showOtherAccounts="true" showEditAccounts="true" showEditButton="true">
 				<webcf:accounts>
 					<webcf:UserMenuAccount titleText="Alain Chevalier" subtitleText="alian.chevalier@sap.com"
