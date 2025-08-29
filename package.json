@@ -30,8 +30,8 @@
 		"ui5-tooling-transpile": "^3.9.0"
 	},
 	"dependencies": {
-		"@ui5/webcomponents": "^2.14.0-rc.4",
-		"@ui5/webcomponents-fiori": "^2.14.0-rc.4",
-		"@ui5/webcomponents-icons": "^2.14.0-rc.4"
+		"@ui5/webcomponents": "^2.14.0-rc.5",
+		"@ui5/webcomponents-fiori": "^2.14.0-rc.5",
+		"@ui5/webcomponents-icons": "^2.14.0-rc.5"
 	}
 }
