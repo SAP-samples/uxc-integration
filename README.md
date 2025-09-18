@@ -52,6 +52,12 @@ Execute the following command to run the app locally for development in watch mo
 npm start
 ```
 
+If you encounter issues with OpenUI5 1.142.0-SNAPSHOT (development version), you can use the stable version:
+
+```sh
+npm run start:stable
+```
+
 As shown in the terminal after executing this command, the app is then running on http://localhost:8080/index.html.<br>
 A browser window with this URL should automatically open.
 

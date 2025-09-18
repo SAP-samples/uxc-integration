@@ -7,8 +7,10 @@
 	"scripts": {
 		"clean": "rimraf dist coverage",
 		"build": "ui5 build --clean-dest",
+		"build:stable": "ui5 build --config ui5-stable.yaml --clean-dest",
 		"build:opt": "ui5 build self-contained --clean-dest --all",
 		"start": "ui5 serve --port 8080 -o index.html",
+		"start:stable": "ui5 serve --config ui5-stable.yaml --port 8080 -o index.html",
 		"start:dist": "npm start -- --config ui5-dist.yaml",
 		"ts-typecheck": "tsc --noEmit",
 		"lint": "eslint webapp",

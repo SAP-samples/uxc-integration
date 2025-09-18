@@ -25,7 +25,21 @@ The project has been configured to use OpenUI5 1.142.0-SNAPSHOT as requested:
 
 ### Build Issues Resolution
 
-If you encounter build errors related to missing snapshot packages, you can temporarily revert to the latest stable version by changing in `ui5.yaml`:
+If you encounter build errors related to missing snapshot packages, you have two options:
+
+#### Option 1: Use the stable configuration file
+Use the provided `ui5-stable.yaml` configuration file that uses OpenUI5 1.140.0:
+
+```bash
+# Build with stable version
+npx ui5 build --config ui5-stable.yaml --clean-dest
+
+# Serve with stable version  
+npx ui5 serve --config ui5-stable.yaml --port 8080
+```
+
+#### Option 2: Temporarily revert main configuration
+Change in `ui5.yaml`:
 
 ```yaml
 framework:
