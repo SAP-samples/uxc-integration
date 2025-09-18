@@ -15,7 +15,7 @@
 		"ui5lint": "ui5lint"
 	},
 	"devDependencies": {
-		"@openui5/types": "^1.139.0",
+		"@openui5/types": "^1.140.0",
 		"@ui5/cli": "^4.0.23",
 		"@ui5/linter": "^1.18.1",
 		"eslint": "^9.34.0",
