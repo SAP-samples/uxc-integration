@@ -15,7 +15,7 @@
 		"ui5lint": "ui5lint"
 	},
 	"devDependencies": {
-		"@openui5/types": "^1.139.0",
+		"@openui5/types": "^1.141.0",
 		"@ui5/cli": "^4.0.23",
 		"@ui5/linter": "^1.18.1",
 		"eslint": "^9.34.0",
@@ -30,8 +30,8 @@
 		"ui5-tooling-transpile": "^3.9.0"
 	},
 	"dependencies": {
-		"@ui5/webcomponents": "^2.14.0",
-		"@ui5/webcomponents-fiori": "^2.14.0",
-		"@ui5/webcomponents-icons": "^2.14.0"
+		"@ui5/webcomponents": "^2.15.0",
+		"@ui5/webcomponents-fiori": "^2.15.0",
+		"@ui5/webcomponents-icons": "^2.15.0"
 	}
 }
