@@ -29,6 +29,7 @@
 		"./webapp/test/e2e/**/*"
 	],
 	"include": [
-		"./webapp/**/*"
+		"./webapp/**/*",
+		"./.ui5-tooling-modules/types/**/*.d.ts"
 	]
 }
