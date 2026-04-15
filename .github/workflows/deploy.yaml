@@ -39,6 +39,9 @@ jobs:
       - name: Build
         run: npm run build:opt
 
+      - name: Generate sap-ui-version.json
+        run: node scripts/generate-version-info.js
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
