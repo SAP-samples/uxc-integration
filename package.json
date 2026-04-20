@@ -5,6 +5,7 @@
 	"author": "SAP SE",
 	"license": "Apache-2.0",
 	"scripts": {
+		"postinstall": "patch-package",
 		"clean": "rimraf dist coverage",
 		"build": "ui5 build --clean-dest",
 		"build:opt": "ui5 build self-contained --clean-dest --all",
@@ -26,7 +27,8 @@
 		"typescript-eslint": "^8.40.0",
 		"ui5-middleware-livereload": "^3.3.0",
 		"ui5-test-runner": "^5.9.1",
-		"ui5-tooling-modules": "^3.35.0",
+		"patch-package": "^8.0.0",
+		"ui5-tooling-modules": "3.35.0",
 		"ui5-tooling-transpile": "^3.11.0"
 	},
 	"dependencies": {
