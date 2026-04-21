@@ -1,0 +1,13 @@
+diff --git a/node_modules/ui5-tooling-modules/lib/utils/WebComponentRegistry.js b/node_modules/ui5-tooling-modules/lib/utils/WebComponentRegistry.js
+index ad19f99..51304d5 100644
+--- a/node_modules/ui5-tooling-modules/lib/utils/WebComponentRegistry.js
++++ b/node_modules/ui5-tooling-modules/lib/utils/WebComponentRegistry.js
+@@ -156,7 +156,7 @@ class RegistryEntry {
+ 
+ 		if (correspondingClass) {
+ 			// find module name
+-			correspondingClass.module = exp.declaration?.module;
++			correspondingClass.module ??= exp.declaration?.module;
+ 			// we track both npm-package name and the namespace
+ 			// they are identical for now, might change later
+ 			correspondingClass.namespace = correspondingClass.package = this.namespace;

@@ -5,6 +5,7 @@
 	"author": "SAP SE",
 	"license": "Apache-2.0",
 	"scripts": {
+		"postinstall": "patch-package",
 		"clean": "rimraf dist coverage",
 		"build": "ui5 build --clean-dest",
 		"build:opt": "ui5 build self-contained --clean-dest --all",
@@ -15,23 +16,24 @@
 		"ui5lint": "ui5lint"
 	},
 	"devDependencies": {
-		"@openui5/types": "^1.141.0",
-		"@ui5/cli": "^4.0.23",
-		"@ui5/linter": "^1.18.1",
+		"@openui5/types": "^1.147.0",
+		"@ui5/cli": "^4.0.51",
+		"@ui5/linter": "^1.20.18",
 		"eslint": "^9.34.0",
 		"globals": "^16.3.0",
 		"rimraf": "^6.0.1",
 		"ts-node": "^10.9.2",
 		"typescript": "^5.9.2",
 		"typescript-eslint": "^8.40.0",
-		"ui5-middleware-livereload": "^3.1.2",
+		"ui5-middleware-livereload": "^3.3.0",
 		"ui5-test-runner": "^5.9.1",
-		"ui5-tooling-modules": "^3.35.0",
-		"ui5-tooling-transpile": "^3.9.0"
+		"patch-package": "^8.0.0",
+		"ui5-tooling-modules": "3.35.0",
+		"ui5-tooling-transpile": "^3.11.0"
 	},
 	"dependencies": {
-		"@ui5/webcomponents": "^2.15.0",
-		"@ui5/webcomponents-fiori": "^2.15.0",
-		"@ui5/webcomponents-icons": "^2.15.0"
+		"@ui5/webcomponents": "^2.21.0",
+		"@ui5/webcomponents-fiori": "^2.21.0",
+		"@ui5/webcomponents-icons": "^2.21.0"
 	}
 }
