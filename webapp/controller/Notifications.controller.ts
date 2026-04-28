@@ -22,15 +22,11 @@ export default class Notifications extends BaseController {
 		const oNotificationList = oView.byId("notificationsPopoverList") as unknown as WebCFNotificationList;
 		const oEmptyMessage = oView.byId("emptyNotificationsMessage") as unknown as WebCFIllustratedMessage;
 
-		// @ts-expect-error: WebCFNotificationList does not have a setVisible method
 		if (oNotificationList && oNotificationList.setVisible) {
-			// @ts-expect-error: WebCFNotificationList does not have a setVisible method
 			oNotificationList.setVisible(false);
 		}
 
-		// @ts-expect-error: WebCFIllustratedMessage does not have a setVisible method
 		if (oEmptyMessage && oEmptyMessage.setVisible) {
-			// @ts-expect-error: WebCFIllustratedMessage does not have a setVisible method
 			oEmptyMessage.setVisible(true);
 		}
 
