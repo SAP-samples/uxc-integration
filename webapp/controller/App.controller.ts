@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment */
 import BaseController from "uxc/integration/controller/BaseController";
 import UI5Element from "sap/ui/core/Element";
 import Device from "sap/ui/Device";
@@ -18,9 +18,9 @@ import NavigationListItem from "sap/tnt/NavigationListItem";
 // UI5 Web Components
 import WebCButton from "@ui5/webcomponents/dist/Button";
 import WebCPopover from "@ui5/webcomponents/dist/Popover";
-import WebCFUserMenu, { UserMenuItemClickEventDetail } from "@ui5/webcomponents-fiori/dist/UserMenu";
+import WebCFUserMenu, { UserMenu$ItemClickEvent } from "@ui5/webcomponents-fiori/dist/UserMenu";
 import WebCFUserSettingsDialog from "@ui5/webcomponents-fiori/dist/UserSettingsDialog";
-import { ShellBar$NotificationsClickEvent, ShellBar$ProfileClickEvent } from "sap/ui/webc/fiori/ShellBar";
+import { ShellBar$NotificationsClickEvent, ShellBar$ProfileClickEvent } from "@ui5/webcomponents-fiori/dist/ShellBar";
 
 // Icons
 import "@ui5/webcomponents-icons/dist/menu2";
@@ -109,7 +109,7 @@ export default class App extends BaseController {
 			const toolPage = this.getView().byId("toolPage") as ToolPage;
 			toolPage.setSideExpanded(!toolPage.getSideExpanded());
 		} else {
-			const menuButton = this.getView().byId("toggleMenu").getDomRef() as WebCButton;
+			const menuButton = this.getView().byId("toggleMenu") as unknown as WebCButton;
 			await this.openNavigationInOverlay(menuButton);
 		}
 	}
@@ -166,11 +166,11 @@ export default class App extends BaseController {
 	 */
 	onNotificationsClick(e: ShellBar$NotificationsClickEvent): void {
 		const view = this.getView().byId("notificationsView") as XMLView;
-		const popover = view.byId("notificationsPopover").getDomRef() as WebCPopover;
+		const popover = view.byId("notificationsPopover") as unknown as WebCPopover;
 
 		e.preventDefault();
-		popover.opener = e.getParameter("targetRef");
-		popover.open = true;
+		popover.setOpener(e.getParameter("targetRef"));
+		popover.setOpen(true);
 	}
 
 	/**
@@ -178,11 +178,11 @@ export default class App extends BaseController {
 	 * This is used to open the user menu and setup the settings dialog.
 	 */
 	async onProfileClick(e: ShellBar$ProfileClickEvent): Promise<void> {
-		const userMenu = this.getView().byId("userProfileMenu").getDomRef() as WebCFUserMenu;
+		const userMenu = this.getView().byId("userProfileMenu") as unknown as WebCFUserMenu;
 
 		// Use the targetRef from the event as the opener
-		userMenu.opener = e.getParameter("targetRef");
-		userMenu.open = true;
+		userMenu.setOpener(e.getParameter("targetRef"));
+		userMenu.setOpen(true);
 
 		// Load the settings dialog if not already loaded
 		let settingsDialog = this.getView().byId("settings") as unknown as WebCFUserSettingsDialog;
@@ -199,16 +199,13 @@ export default class App extends BaseController {
 
 		// Add event listener for user menu item clicks if not already added
 		if (!this.userMenuListenerAdded) {
-			userMenu.addEventListener("item-click", (event: Event) => {
-				const customEvent = event as CustomEvent<UserMenuItemClickEventDetail>;
-				const item = customEvent.detail?.item.text;
+			userMenu.attachItemClick((event: UserMenu$ItemClickEvent) => {
+				const item = event.getParameter("item");
 				const settingsDialog = this.getView().byId("userSettingsDialog--settings") as unknown as WebCFUserSettingsDialog;
 
-				switch (item) {
+				switch (item?.getText()) {
 					case "Setting":
-						// @ts-expect-error: getOpen is not in the type but exists at runtime
 						if (!settingsDialog.getOpen()) {
-							// @ts-expect-error: setOpen is not in the type but exists at runtime
 							settingsDialog.setOpen(true);
 						}
 				}
