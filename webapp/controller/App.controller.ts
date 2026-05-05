@@ -169,7 +169,7 @@ export default class App extends BaseController {
 		const popover = view.byId("notificationsPopover") as unknown as WebCPopover;
 
 		e.preventDefault();
-		popover.setOpener(e.getParameter("targetRef"));
+		(popover.getDomRef() as unknown as { opener: HTMLElement | null }).opener = e.getParameter("targetRef") as unknown as HTMLElement;
 		popover.setOpen(true);
 	}
 
@@ -181,7 +181,7 @@ export default class App extends BaseController {
 		const userMenu = this.getView().byId("userProfileMenu") as unknown as WebCFUserMenu;
 
 		// Use the targetRef from the event as the opener
-		userMenu.setOpener(e.getParameter("targetRef"));
+		(userMenu.getDomRef() as unknown as { opener: HTMLElement | null }).opener = e.getParameter("targetRef") as unknown as HTMLElement;
 		userMenu.setOpen(true);
 
 		// Load the settings dialog if not already loaded
