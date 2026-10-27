@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment */
 import BaseController from "uxc/integration/controller/BaseController";
 import UI5Element from "sap/ui/core/Element";
 import Device from "sap/ui/Device";
@@ -185,7 +184,7 @@ export default class App extends BaseController {
 		userMenu.setOpen(true);
 
 		// Load the settings dialog if not already loaded
-		let settingsDialog = this.getView().byId("settings") as unknown as WebCFUserSettingsDialog;
+		const settingsDialog = this.getView().byId("settings") as unknown as WebCFUserSettingsDialog;
 		if (!settingsDialog) {
 			const dialogFragment = await Fragment.load({
 				id: this.getView().getId(),
@@ -194,7 +193,6 @@ export default class App extends BaseController {
 			});
 			// Add as dependent (expects UI5Element)
 			this.getView().addDependent(dialogFragment as unknown as UI5Element);
-			settingsDialog = dialogFragment as unknown as WebCFUserSettingsDialog;
 		}
 
 		// Add event listener for user menu item clicks if not already added
