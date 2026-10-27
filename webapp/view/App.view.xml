@@ -73,7 +73,7 @@
 						</webcf:searchField>
 
 						<webcf:assistant>
-							<webc:ToggleButton icon="da" tooltip="Assistant" />
+							<webc:ToggleButton icon="da" tooltip="Assistant" design="Transparent" click=".onAssistantToggle" />
 						</webcf:assistant>
 
 						<webcf:ShellBarItem icon="sys-help" text="Help" />

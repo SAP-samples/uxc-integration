@@ -17,6 +17,7 @@ import NavigationListItem from "sap/tnt/NavigationListItem";
 // UI5 Web Components
 import WebCButton from "@ui5/webcomponents/dist/Button";
 import WebCPopover from "@ui5/webcomponents/dist/Popover";
+import WebCToggleButton, { ToggleButton$ClickEvent } from "@ui5/webcomponents/dist/ToggleButton";
 import WebCFUserMenu, { UserMenu$ItemClickEvent } from "@ui5/webcomponents-fiori/dist/UserMenu";
 import WebCFUserSettingsDialog from "@ui5/webcomponents-fiori/dist/UserSettingsDialog";
 import { ShellBar$NotificationsClickEvent, ShellBar$ProfileClickEvent } from "@ui5/webcomponents-fiori/dist/ShellBar";
@@ -25,6 +26,7 @@ import { ShellBar$NotificationsClickEvent, ShellBar$ProfileClickEvent } from "@u
 import "@ui5/webcomponents-icons/dist/menu2";
 import "@ui5/webcomponents-icons/dist/sys-help";
 import "@ui5/webcomponents-icons/dist/da";
+import "@ui5/webcomponents-icons/dist/da-2";
 import "@ui5/webcomponents-icons/dist/action-settings";
 import "@ui5/webcomponents-icons/dist/official-service";
 import "@ui5/webcomponents-icons/dist/message-information";
@@ -170,6 +172,14 @@ export default class App extends BaseController {
 		e.preventDefault();
 		(popover.getDomRef() as unknown as { opener: HTMLElement | null }).opener = e.getParameter("targetRef") as unknown as HTMLElement;
 		popover.setOpen(true);
+	}
+
+	/**
+	 * Toggles the Joule assistant icon: "da-2" when pressed (on), "da" when released (off).
+	 */
+	onAssistantToggle(e: ToggleButton$ClickEvent): void {
+		const button = e.getSource<WebCToggleButton>();
+		button.setIcon(button.getPressed() ? "da-2" : "da");
 	}
 
 	/**
