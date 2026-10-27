@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-assignment */
 import BaseController from "uxc/integration/controller/BaseController";
 import UI5Element from "sap/ui/core/Element";
 import Device from "sap/ui/Device";
@@ -18,6 +17,7 @@ import NavigationListItem from "sap/tnt/NavigationListItem";
 // UI5 Web Components
 import WebCButton from "@ui5/webcomponents/dist/Button";
 import WebCPopover from "@ui5/webcomponents/dist/Popover";
+import WebCToggleButton, { ToggleButton$ClickEvent } from "@ui5/webcomponents/dist/ToggleButton";
 import WebCFUserMenu, { UserMenu$ItemClickEvent } from "@ui5/webcomponents-fiori/dist/UserMenu";
 import WebCFUserSettingsDialog from "@ui5/webcomponents-fiori/dist/UserSettingsDialog";
 import { ShellBar$NotificationsClickEvent, ShellBar$ProfileClickEvent } from "@ui5/webcomponents-fiori/dist/ShellBar";
@@ -26,6 +26,7 @@ import { ShellBar$NotificationsClickEvent, ShellBar$ProfileClickEvent } from "@u
 import "@ui5/webcomponents-icons/dist/menu2";
 import "@ui5/webcomponents-icons/dist/sys-help";
 import "@ui5/webcomponents-icons/dist/da";
+import "@ui5/webcomponents-icons/dist/da-2";
 import "@ui5/webcomponents-icons/dist/action-settings";
 import "@ui5/webcomponents-icons/dist/official-service";
 import "@ui5/webcomponents-icons/dist/message-information";
@@ -174,6 +175,14 @@ export default class App extends BaseController {
 	}
 
 	/**
+	 * Toggles the Joule assistant icon: "da-2" when pressed (on), "da" when released (off).
+	 */
+	onAssistantToggle(e: ToggleButton$ClickEvent): void {
+		const button = e.getSource<WebCToggleButton>();
+		button.setIcon(button.getPressed() ? "da-2" : "da");
+	}
+
+	/**
 	 * Called when the user clicks on the profile button.
 	 * This is used to open the user menu and setup the settings dialog.
 	 */
@@ -185,7 +194,7 @@ export default class App extends BaseController {
 		userMenu.setOpen(true);
 
 		// Load the settings dialog if not already loaded
-		let settingsDialog = this.getView().byId("settings") as unknown as WebCFUserSettingsDialog;
+		const settingsDialog = this.getView().byId("settings") as unknown as WebCFUserSettingsDialog;
 		if (!settingsDialog) {
 			const dialogFragment = await Fragment.load({
 				id: this.getView().getId(),
@@ -194,7 +203,6 @@ export default class App extends BaseController {
 			});
 			// Add as dependent (expects UI5Element)
 			this.getView().addDependent(dialogFragment as unknown as UI5Element);
-			settingsDialog = dialogFragment as unknown as WebCFUserSettingsDialog;
 		}
 
 		// Add event listener for user menu item clicks if not already added

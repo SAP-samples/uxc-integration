@@ -73,7 +73,7 @@
 						</webcf:searchField>
 
 						<webcf:assistant>
-							<webc:ToggleButton icon="da" tooltip="Assistant" />
+							<webc:ToggleButton icon="da" tooltip="Assistant" design="Transparent" click=".onAssistantToggle" />
 						</webcf:assistant>
 
 						<webcf:ShellBarItem icon="sys-help" text="Help" />
@@ -95,19 +95,19 @@
 						width="18rem"
 						itemSelect=".onItemSelect">
 						<tnt:NavigationList>
-							<tnt:NavigationListItem key="home" text="Home" icon="home" />
-							<tnt:NavigationListItem key="favorites" text="Favorites" expanded="true" icon="favorite-list"
+							<tnt:NavigationListItem key="home" text="Home" icon="sap-icon://home" />
+							<tnt:NavigationListItem key="favorites" text="Favorites" expanded="true" icon="sap-icon://favorite-list"
 								selectable="false">
 								<tnt:NavigationListItem key="myAccounts" text="My Accounts" />
 								<tnt:NavigationListItem key="myOrders" text="My Orders" />
 							</tnt:NavigationListItem>
-							<tnt:NavigationListItem key="customerManagement" text="Customer Management" icon="account" expanded="true"
+							<tnt:NavigationListItem key="customerManagement" text="Customer Management" icon="sap-icon://account" expanded="true"
 								selectable="false">
 								<tnt:NavigationListItem key="contacts" text="Contacts" />
 								<tnt:NavigationListItem key="companies" text="Companies" />
 								<tnt:NavigationListItem key="partners" text="Partners" />
 							</tnt:NavigationListItem>
-							<tnt:NavigationListItem key="sales" text="Sales" icon="crm-sales" expanded="true"
+							<tnt:NavigationListItem key="sales" text="Sales" icon="sap-icon://crm-sales" expanded="true"
 								selectable="false">
 								<tnt:NavigationListItem key="leads" text="Leads" />
 								<tnt:NavigationListItem key="opportunities" text="Opportunities" />
@@ -115,19 +115,19 @@
 								<tnt:NavigationListItem key="orders" text="Orders" />
 								<tnt:NavigationListItem key="invoices" text="Invoices" />
 							</tnt:NavigationListItem>
-							<tnt:NavigationListItem key="products" text="Products" icon="s4hana" expanded="true"
+							<tnt:NavigationListItem key="products" text="Products" icon="sap-icon://s4hana" expanded="true"
 								selectable="false">
 								<tnt:NavigationListItem key="productCatalog" text="Product Catalog" />
 								<tnt:NavigationListItem key="pricing" text="Pricing" />
 								<tnt:NavigationListItem key="inventoryManagement" text="Inventory Management" />
 							</tnt:NavigationListItem>
-							<tnt:NavigationListItem key="marketing" text="Marketing" icon="business-by-design" expanded="true"
+							<tnt:NavigationListItem key="marketing" text="Marketing" icon="sap-icon://business-by-design" expanded="true"
 								selectable="false">
 								<tnt:NavigationListItem key="campaigns" text="Campaigns" />
 								<tnt:NavigationListItem key="emailMarketing" text="E-Mail Marketing" />
 								<tnt:NavigationListItem key="marketingAutomation" text="Marketing Automation" />
 							</tnt:NavigationListItem>
-							<tnt:NavigationListItem key="reports" text="Reports" icon="manager-insight" expanded="true"
+							<tnt:NavigationListItem key="reports" text="Reports" icon="sap-icon://manager-insight" expanded="true"
 								selectable="false">
 								<tnt:NavigationListItem key="salesReports" text="Sales Reports" />
 								<tnt:NavigationListItem key="customerReports" text="Customer Reports" />
@@ -135,9 +135,9 @@
 						</tnt:NavigationList>
 						<tnt:fixedItem>
 							<tnt:NavigationList>
-								<tnt:NavigationListItem key="quickCreate" text="Quick Create" icon="add" design="Action"
+								<tnt:NavigationListItem key="quickCreate" text="Quick Create" icon="sap-icon://add" design="Action"
 									selectable="false" press=".onQuickCreate" />
-								<tnt:NavigationListItem key="productSettings" text="Product Settings" icon="settings" />
+								<tnt:NavigationListItem key="productSettings" text="Product Settings" icon="sap-icon://settings" />
 							</tnt:NavigationList>
 						</tnt:fixedItem>
 					</tnt:SideNavigation>
