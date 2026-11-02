@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import BaseController from "uxc/integration/controller/BaseController";
 import JSONModel from "sap/ui/model/json/JSONModel";
 
